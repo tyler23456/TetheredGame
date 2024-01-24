@@ -1,0 +1,23 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Editor/NodeViewStyle.uss?fileID=7433441132597879392&amp;guid=d8f7f01c1e92977419bafa8ccaadd40e&amp;type=3#NodeViewStyle" />
+    <ui:VisualElement name="node-border" style="border-left-color: rgb(56, 56, 56); border-right-color: rgb(56, 56, 56); border-top-color: rgb(56, 56, 56); border-bottom-color: rgb(56, 56, 56); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; background-color: rgb(56, 56, 56);">
+        <ui:VisualElement name="title" style="-unity-font-definition: url(&apos;project://database/Assets/Editor/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&amp;guid=3c0e0f1605e891a40a7c61b2d9fd87af&amp;type=3#NotInter-Regular&apos;);">
+            <ui:VisualElement name="title-button-container">
+                <ui:VisualElement name="collapse-button">
+                    <ui:VisualElement name="icon" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="contents">
+            <ui:VisualElement name="top">
+                <ui:VisualElement name="input" />
+                <ui:VisualElement name="divider" class="vertical" />
+                <ui:Label name="title-label" text="ItemNode" class="unity-text-element unity-label" />
+                <ui:VisualElement name="divider" class="horizontal" />
+                <ui:VisualElement name="output" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="selection-border" picking-mode="Ignore" style="background-color: rgba(0, 0, 0, 0); margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;" />
+    <ui:VisualElement name="node-state" picking-mode="Ignore" style="flex-grow: 1;" />
+</ui:UXML>

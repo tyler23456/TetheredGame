@@ -2,7 +2,8 @@
     "name": "TreeBuilderEditor",
     "rootNamespace": "",
     "references": [
-        "GUID:8bdd601c76ee0ba4dbda57163d891418"
+        "GUID:8bdd601c76ee0ba4dbda57163d891418",
+        "GUID:1491147abca9d7d4bb7105af628b223e"
     ],
     "includePlatforms": [
         "Editor"

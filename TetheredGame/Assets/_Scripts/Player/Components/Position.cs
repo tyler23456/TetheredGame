@@ -4,8 +4,14 @@ using UnityEngine;
 
 namespace TG.Player
 {
+    [System.Serializable]
     public class Position
     {
-        
+
+
+        public void Update()
+        {
+
+        }
     }
 }
