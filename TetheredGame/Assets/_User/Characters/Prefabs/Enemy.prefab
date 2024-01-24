@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -1190554142947970056}
   - component: {fileID: -314295734601664381}
   m_Layer: 0
-  m_Name: Chaser
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,4 +155,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea0ad3c91987f8143a42a76657bc8fd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tree: {fileID: 0}
+  tree: {fileID: 11400000, guid: 989ab29404a3c374cad43ec285809234, type: 2}

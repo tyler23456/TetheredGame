@@ -6,9 +6,8 @@ namespace TG.Player
 {
     public class Character : Runner
     {
-        [SerializeField] Controls controls;
-        [SerializeField] Position position;
-        [SerializeField] Rotation rotation;
+        [SerializeField] protected Position position;
+        [SerializeField] protected Rotation rotation;
 
         protected new void Awake()
         {
@@ -33,7 +32,6 @@ namespace TG.Player
 
             base.Update();
 
-            controls.Update();
             position.Update();
             rotation.Update();
         }
