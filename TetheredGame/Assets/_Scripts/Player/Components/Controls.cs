@@ -12,11 +12,14 @@ namespace TG.Player
         [HideInInspector] public KeyCode moveDownKey { get; set; } = KeyCode.S;
         [HideInInspector] public KeyCode moveLeftKey { get; set; } = KeyCode.A;
         [HideInInspector] public KeyCode moveRightKey { get; set; } = KeyCode.D;
+        [HideInInspector] public KeyCode pickUpKey { get; set; } = KeyCode.E;
 
         [HideInInspector] public Action moveUp { get; set; } = () => { };
         [HideInInspector] public Action moveDown { get; set; } = () => { };
         [HideInInspector] public Action moveLeft { get; set; } = () => { };
         [HideInInspector] public Action moveRight { get; set; } = () => { };
+
+        [HideInInspector] public Action pickUp { get; set; } = () => { };
 
         public void Update()
         {
@@ -31,6 +34,9 @@ namespace TG.Player
 
             if (Input.GetKey(moveRightKey))
                 moveRight.Invoke();
+
+            if (Input.GetKeyDown(pickUpKey))
+                pickUp.Invoke();
         }
     }
 }

@@ -11,9 +11,6 @@ public class Runner : NetworkBehaviour
 
     protected void Awake()
     {
-        if (!IsOwner)
-            return;
-
         tree = tree.Clone();
         tree.blackboard = new Blackboard(gameObject);
         tree.BindBlackboard();
@@ -21,17 +18,11 @@ public class Runner : NetworkBehaviour
 
     protected void Start()
     {
-        if (!IsOwner)
-            return;
-
         tree.rootNode.state = UserNode.State.Success;
     }
 
     protected void Update()
     {
-        if (!IsOwner)
-            return;
-
         tree.rootNode.state = UserNode.State.Running;
         tree.Update();
     }

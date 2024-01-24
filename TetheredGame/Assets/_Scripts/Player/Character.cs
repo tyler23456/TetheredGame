@@ -4,18 +4,21 @@ using UnityEngine;
 
 namespace TG.Player
 {
-    public class Character : Runner
+    public class Character : Runner, ICharacter
     {
-        [SerializeField] protected Position position;
-        [SerializeField] protected Rotation rotation;
+        [SerializeField] protected Movement movement;
+        [SerializeField] protected Orientation orientation;
 
-        protected new void Awake()
-        {
-            if (!IsOwner)
-                return;
 
-            base.Awake();
-        }
+        public Vector3 getPosition => transform.position;
+        public Vector3 getForward => transform.forward;
+
+        public IMovement getMovement => movement;
+        public IOrientation getOrientation => orientation;
+        public IInventory getKeyItems => throw new System.NotImplementedException();
+        public IInventory getEquipment => throw new System.NotImplementedException();
+        public IAnimations getAnimations => throw new System.NotImplementedException();
+
 
         protected new void Start()
         {
@@ -32,8 +35,13 @@ namespace TG.Player
 
             base.Update();
 
-            position.Update();
-            rotation.Update();
+            movement.Update();
+            orientation.Update();
+        }
+
+        public void SpawnEffectByName(string name)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

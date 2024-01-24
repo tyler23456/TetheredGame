@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3605370116569887494
+--- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,7 +9,41 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1f93b2969e3f3045b76d066e8888100, type: 3}
+  m_Script: {fileID: 11500000, guid: c5027e452b104ea4987deac850811bc4, type: 3}
+  m_Name: Enemy
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: 4217869195552710585}
+  nodes:
+  - {fileID: 4217869195552710585}
+  - {fileID: 4002019053498636977}
+  blackboard:
+    agent: {fileID: 0}
+    animation: {fileID: 0}
+    localProgress: 0
+    speed: 0
+    gameObject: {fileID: 0}
+    progress: {fileID: 0}
+    item: {fileID: 0}
+    hasItem: {fileID: 0}
+    userLock: {fileID: 0}
+    animator: {fileID: 0}
+    audioSource: {fileID: 0}
+    renderer: {fileID: 0}
+    collider: {fileID: 0}
+    hasGameObject: {fileID: 0}
+    playableDirector: {fileID: 0}
+    playableBinder: {fileID: 0}
+    otherAnimator: {fileID: 0}
+--- !u!114 &4002019053498636977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d908f28171c26b74989f1d6f54711cd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   board:
@@ -32,46 +66,11 @@ MonoBehaviour:
     otherAnimator: {fileID: 0}
   childIndex: 0
   children: []
-  nodeName: Wait
+  nodeName: Chase
   state: 0
   started: 0
-  guid: cf8a3e72b76a95044bfb7b621575bee8
-  position: {x: 0, y: 114, z: 0}
-  duration: 1
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5027e452b104ea4987deac850811bc4, type: 3}
-  m_Name: Enemy
-  m_EditorClassIdentifier: 
-  rootNode: {fileID: 4217869195552710585}
-  nodes:
-  - {fileID: 4217869195552710585}
-  - {fileID: -3605370116569887494}
-  blackboard:
-    agent: {fileID: 0}
-    animation: {fileID: 0}
-    localProgress: 0
-    speed: 0
-    gameObject: {fileID: 0}
-    progress: {fileID: 0}
-    item: {fileID: 0}
-    hasItem: {fileID: 0}
-    userLock: {fileID: 0}
-    animator: {fileID: 0}
-    audioSource: {fileID: 0}
-    renderer: {fileID: 0}
-    collider: {fileID: 0}
-    hasGameObject: {fileID: 0}
-    playableDirector: {fileID: 0}
-    playableBinder: {fileID: 0}
-    otherAnimator: {fileID: 0}
+  guid: 18925747746bb3040bbe351516d22e3e
+  position: {x: 0, y: 138, z: 0}
 --- !u!114 &4217869195552710585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,9 +103,9 @@ MonoBehaviour:
     otherAnimator: {fileID: 0}
   childIndex: 0
   children:
-  - {fileID: -3605370116569887494}
+  - {fileID: 4002019053498636977}
   nodeName: Root
   state: 0
   started: 0
   guid: 607477093b66b26489bd0a26bedf3e18
-  position: {x: 0, y: 0, z: 0}
+  position: {x: 0, y: 6, z: 0}

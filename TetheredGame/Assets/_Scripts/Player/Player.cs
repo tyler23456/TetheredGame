@@ -5,7 +5,7 @@ using UnityEngine;
 namespace TG.Player
 {
     [RequireComponent(typeof(CharacterController))]
-    public class Player : Character
+    public class Player : Character, ICharacter
     {
         [SerializeField] protected Controls controls;
 
@@ -19,12 +19,14 @@ namespace TG.Player
             base.Start();
 
             controller = GetComponent<CharacterController>();
-            position.onMove = (changeInPosition) => controller.Move(changeInPosition);
+            movement.onMove = (changeInPosition) => controller.Move(changeInPosition);
 
-            controls.moveUp = () => position.Add(Vector3.forward * 5f);
-            controls.moveDown = () => position.Add(Vector3.back * 5f);
-            controls.moveLeft = () => position.Add(Vector3.left * 5f);
-            controls.moveRight = () => position.Add(Vector3.right * 5f);
+            controls.moveUp = () => movement.Add(Vector3.forward * 5f);
+            controls.moveDown = () => movement.Add(Vector3.back * 5f);
+            controls.moveLeft = () => movement.Add(Vector3.left * 5f);
+            controls.moveRight = () => movement.Add(Vector3.right * 5f);
+            controls.pickUp = () => GameObject.Find("/DontDestroyOnLoad").GetComponent<ITarget>().Set(transform);
+
         }
 
         protected new void Update()

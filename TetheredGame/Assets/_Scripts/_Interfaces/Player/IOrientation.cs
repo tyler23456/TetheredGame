@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IRotation
+public interface IOrientation
 {
     void SetAxes(bool xAxis, bool yAxis, bool zAxis);
     void Add(Vector3 eulerAnglesOffset);

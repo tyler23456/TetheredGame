@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TG.Player
 {
-    public class Enemy : Character
+    public class Enemy : Character, ICharacter
     {
 
         protected new void Start()

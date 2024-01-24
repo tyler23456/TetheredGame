@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IHittable
+public interface ICharacter
 {
     string tag { get; set; }
     bool enabled { get; set; }
 
-    IPosition getPosition { get; }
-    IRotation getRotation { get; }
+
+    Vector3 getPosition { get; }
+    Vector3 getForward { get; }
+    IMovement getMovement { get; }
+    IOrientation getOrientation { get; }
     IInventory getKeyItems { get; }
     IInventory getEquipment { get; }
     IAnimations getAnimations { get; }

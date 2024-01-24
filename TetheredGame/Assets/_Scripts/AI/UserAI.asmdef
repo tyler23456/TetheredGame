@@ -1,3 +1,17 @@
 {
-	"name": "AI"
+    "name": "AI",
+    "rootNamespace": "",
+    "references": [
+        "GUID:8bdd601c76ee0ba4dbda57163d891418",
+        "GUID:74bb54a8f681dfe4c993cae7981dfc2e"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
