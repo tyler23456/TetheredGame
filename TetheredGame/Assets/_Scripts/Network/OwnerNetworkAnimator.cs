@@ -6,7 +6,7 @@ using Unity.Netcode.Components;
 namespace TG.Network
 {
     [DisallowMultipleComponent]
-    public class ClientNetworkTransform : NetworkTransform
+    public class OwnerNetworkAnimator : NetworkAnimator
     {
         protected override bool OnIsServerAuthoritative()
         {

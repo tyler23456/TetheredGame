@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
 namespace GT.DontDestroyOnLoad
 {
-    public class Target : MonoBehaviour, ITarget
+    public class Target : NetworkBehaviour, ITarget
     {
         Transform targetTransform;
 
