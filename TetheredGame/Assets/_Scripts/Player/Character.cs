@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TG.Player
+namespace TG.UserPlayer
 {
     public class Character : Runner, ICharacter
     {

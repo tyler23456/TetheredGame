@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-namespace TG.Player
+namespace TG.UserPlayer
 {
     [System.Serializable]
     public class Controls
