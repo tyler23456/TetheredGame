@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.ObjectModel;
 
 public interface ICharacter
 {
+    static ReadOnlyCollection<string> names = new ReadOnlyCollection<string>(new string[5] { "Larry", "Isaac", "Moris", "Denise", "Clair" });
+
     string tag { get; set; }
     bool enabled { get; set; }
 

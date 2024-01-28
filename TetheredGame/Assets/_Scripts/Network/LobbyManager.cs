@@ -5,18 +5,25 @@ using Unity.Services.Core;
 using Unity.Services.Lobbies;
 using Unity.Services.Lobbies.Models;
 using UnityEngine;
+using System;
 
 namespace TG.Network
 {
-    public class LobbyBehavior : MonoBehaviour
+    public class LobbyManager : MonoBehaviour, ILobby
     {
+        public const string KEY_PLAYER_NAME = "PlayerName";
+        public const string KEY_PLAYER_CHARACTER = "Character";
+        public const string KEY_GAME_MODE = "GameMode";
+
         private string playerName = "Foo";
         private Lobby lobby;
-        private float heartbeatTimer = Time.time;
+        private float heartbeatTimer = 0f;
         private float heartbeatDuration = 15;
 
-        private float lobbyPollTimer = Time.time;
+        private float lobbyPollTimer = 0f;
         private float lobbyPollDuration = 1.1f;
+
+        public bool isPrivate => lobby.IsPrivate;
 
         private async void Start()
         {
@@ -28,6 +35,8 @@ namespace TG.Network
             };
             await AuthenticationService.Instance.SignInAnonymouslyAsync();
 
+            heartbeatTimer = Time.time;
+            lobbyPollTimer = Time.time;
         }
 
         private void Update()
@@ -45,8 +54,18 @@ namespace TG.Network
             await LobbyService.Instance.SendHeartbeatPingAsync(lobby.Id);
         }
 
+        private async void HandleLobbyPollForUpdates()
+        {
+            if (lobby == null || Time.time < lobbyPollTimer + lobbyPollDuration)
+                return;
 
-        private async void CreateLobby()
+            lobbyPollTimer = Time.time;
+
+            lobby = await LobbyService.Instance.GetLobbyAsync(lobby.Id);
+        }
+
+
+        public async void CreateLobby()
         {
             string lobbyName = "Test Lobby";
             int maxPlayers = 4;
@@ -55,9 +74,9 @@ namespace TG.Network
             createLobbyOptions.IsPrivate = false;
             createLobbyOptions.Player = GetPlayer();
             createLobbyOptions.Data = new Dictionary<string, DataObject>
-        {
-            { "GameMode", new DataObject(DataObject.VisibilityOptions.Member, "Survival")}
-        };
+            {
+                { "GameMode", new DataObject(DataObject.VisibilityOptions.Member, "Survival")}
+            };
 
             try
             {
@@ -73,15 +92,18 @@ namespace TG.Network
 
         }
 
-        private async void ListLobbies()
+        public async void ListLobbies()
         {
             try
             {
                 QueryResponse queryResponse = await Lobbies.Instance.QueryLobbiesAsync();
 
                 Debug.Log("Lobbies found: " + queryResponse.Results.Count);
+                ILobby.lobbiesInfo.Clear();
                 foreach (Lobby lobby in queryResponse.Results)
                 {
+                    string info = lobby.Name + " " + lobby.MaxPlayers;
+                    ILobby.lobbiesInfo.Add(info);
                     Debug.Log(lobby.Name + " " + lobby.MaxPlayers);
                 }
             }
@@ -91,7 +113,7 @@ namespace TG.Network
             }
         }
 
-        private async void JoinLobbyByCode()
+        public async void JoinLobbyByCode()
         {
             try
             {
@@ -113,7 +135,7 @@ namespace TG.Network
 
         }
 
-        private async void QuickJoinLobby()
+        public async void QuickJoinLobby()
         {
             try
             {
@@ -125,27 +147,31 @@ namespace TG.Network
             }
         }
 
-        private void PrintPlayers(Lobby lobby)
+        public async void LeaveLobby()
         {
-            Debug.Log("Players in lobby " + lobby.Name);
-            foreach (Player player in lobby.Players)
+            try
             {
-                Debug.Log(player.Id + " " + player.Data["PlayerName"].Value);
+                await LobbyService.Instance.RemovePlayerAsync(lobby.Id, AuthenticationService.Instance.PlayerId);
+            }
+            catch (LobbyServiceException e)
+            {
+                Debug.Log(e);
             }
         }
 
-        private Player GetPlayer()
+        public async void KickPlayer(string playerID)
         {
-            return new Player
+            try
             {
-                Data = new Dictionary<string, PlayerDataObject>
-            {
-                { "PlayerName",  new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, playerName) }
+                await LobbyService.Instance.RemovePlayerAsync(lobby.Id, playerID);
             }
-            };
+            catch (LobbyServiceException e)
+            {
+                Debug.Log(e);
+            }
         }
 
-        private async void UpdateLobbyGameMode(string gameMode)
+        public async void UpdateLobbyGameMode(string gameMode)
         {
             try
             {
@@ -163,17 +189,7 @@ namespace TG.Network
             }
         }
 
-        private async void HandleLobbyPollForUpdates()
-        {
-            if (lobby == null || Time.time < lobbyPollTimer + lobbyPollDuration)
-                return;
-
-            lobbyPollTimer = Time.time;
-
-            lobby = await LobbyService.Instance.GetLobbyAsync(lobby.Id);
-        }
-
-        private async void UpdatePlayerName(string newPlayerName)
+        public async void UpdatePlayerName(string newPlayerName)
         {
             try
             {
@@ -181,9 +197,9 @@ namespace TG.Network
                 lobby = await LobbyService.Instance.UpdatePlayerAsync(lobby.Id, AuthenticationService.Instance.PlayerId, new UpdatePlayerOptions
                 {
                     Data = new Dictionary<string, PlayerDataObject>
-                {
-                    { "PlayerName", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, playerName)}
-                }
+                    {
+                        { "PlayerName", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, playerName)}
+                    }
                 });
             }
             catch (LobbyServiceException e)
@@ -192,28 +208,26 @@ namespace TG.Network
             }
         }
 
-        private async void LeaveLobby()
+        private void PrintPlayers(Lobby lobby)
         {
-            try
+            ILobby.playersInfo.Clear();
+            foreach (Player player in lobby.Players)
             {
-                await LobbyService.Instance.RemovePlayerAsync(lobby.Id, AuthenticationService.Instance.PlayerId);
-            }
-            catch (LobbyServiceException e)
-            {
-                Debug.Log(e);
+                string info = player.Id + "|" + player.Data["PlayerName"].Value;
+                ILobby.playersInfo.Add(info);
+                Debug.Log(info);
             }
         }
 
-        private async void KickPlayer(string playerID)
+        private Player GetPlayer()
         {
-            try
+            return new Player
             {
-                await LobbyService.Instance.RemovePlayerAsync(lobby.Id, playerID);
-            }
-            catch (LobbyServiceException e)
-            {
-                Debug.Log(e);
-            }
-        }
+                Data = new Dictionary<string, PlayerDataObject>
+                {
+                    { "PlayerName",  new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, playerName) }
+                }
+            };
+        }  
     }
 }
