@@ -5,7 +5,7 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.Playables;
 
-namespace GDA.DontDestroyOnLoad
+namespace TG.DontDestroyOnLoad
 {
     public class Factory : MonoBehaviour, IFactory
     {

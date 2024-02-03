@@ -8,6 +8,9 @@ namespace TG.UserPlayer
     {
         [SerializeField] protected Movement movement;
         [SerializeField] protected Orientation orientation;
+        [SerializeField] protected new Animation animation;
+        [SerializeField] protected Stats stats;
+        [SerializeField] protected Equipped equipped;
 
 
         public Vector3 getPosition => transform.position;
@@ -15,9 +18,9 @@ namespace TG.UserPlayer
 
         public IMovement getMovement => movement;
         public IOrientation getOrientation => orientation;
-        public IInventory getKeyItems => throw new System.NotImplementedException();
-        public IInventory getEquipment => throw new System.NotImplementedException();
-        public IAnimations getAnimations => throw new System.NotImplementedException();
+        public IEquipped getEquipped => equipped;
+        public IAnimation getAnimation => animation;
+        public IStats getStats => stats;
 
 
         protected new void Start()

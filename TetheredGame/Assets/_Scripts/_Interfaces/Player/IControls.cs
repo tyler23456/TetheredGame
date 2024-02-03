@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface ICommands
+public interface IControls
 {
     Vector3 direction { get; set; }
     Vector3 targetPosition { get; set; }

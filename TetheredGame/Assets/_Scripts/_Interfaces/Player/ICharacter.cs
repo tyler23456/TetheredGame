@@ -15,9 +15,9 @@ public interface ICharacter
     Vector3 getForward { get; }
     IMovement getMovement { get; }
     IOrientation getOrientation { get; }
-    IInventory getKeyItems { get; }
-    IInventory getEquipment { get; }
-    IAnimations getAnimations { get; }
+    IAnimation getAnimation { get; }
+    IStats getStats { get; }
+    IEquipped getEquipped { get; }
 
     void SpawnEffectByName(string name);
 }

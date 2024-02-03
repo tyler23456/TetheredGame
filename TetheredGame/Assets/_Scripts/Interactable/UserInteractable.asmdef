@@ -1,0 +1,16 @@
+{
+    "name": "UserInteractable",
+    "rootNamespace": "",
+    "references": [
+        "GUID:8bdd601c76ee0ba4dbda57163d891418"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

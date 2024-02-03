@@ -6,7 +6,7 @@ using System;
 namespace TG.UserPlayer
 {
     [System.Serializable]
-    public class Controls
+    public class Controls : IControls
     {
         [HideInInspector] public KeyCode moveUpKey { get; set; } = KeyCode.W;
         [HideInInspector] public KeyCode moveDownKey { get; set; } = KeyCode.S;
@@ -20,6 +20,13 @@ namespace TG.UserPlayer
         [HideInInspector] public Action moveRight { get; set; } = () => { };
 
         [HideInInspector] public Action pickUp { get; set; } = () => { };
+        public Vector3 direction { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public Vector3 targetPosition { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public void AddVelocity(Vector3 changeInVelocity)
+        {
+            throw new NotImplementedException();
+        }
 
         public void Update()
         {
@@ -37,6 +44,31 @@ namespace TG.UserPlayer
 
             if (Input.GetKeyDown(pickUpKey))
                 pickUp.Invoke();
+        }
+
+        public void UseAbility()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UseAim()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UseDodge()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UseFreeLook()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UseJump()
+        {
+            throw new NotImplementedException();
         }
     }
 }

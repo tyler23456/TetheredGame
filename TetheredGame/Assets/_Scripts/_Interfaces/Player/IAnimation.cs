@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IAnimations
+public interface IAnimation
 {
     Transform getRoot { get; }
     void SetTrigger(string parameterName);
