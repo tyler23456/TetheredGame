@@ -42,6 +42,7 @@ public class Blackboard
     [HideInInspector] public PlayableDirector playableDirector;
     [HideInInspector] public PlayableBinder playableBinder;
     [HideInInspector] public OtherAnimator otherAnimator;
+    [HideInInspector] public IJumpScare jumpScare;
 
     public Blackboard(GameObject gameObject)
     {
@@ -72,6 +73,7 @@ public class Blackboard
         playableDirector = gameObject.GetComponent<PlayableDirector>();
         playableBinder = gameObject.GetComponent<PlayableBinder>();
         otherAnimator = gameObject.GetComponent<OtherAnimator>();
+        jumpScare = gameObject.GetComponent<IJumpScare>();
     }
 }
 
