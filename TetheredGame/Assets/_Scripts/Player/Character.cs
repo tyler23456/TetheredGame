@@ -25,16 +25,24 @@ namespace TG.UserPlayer
 
         protected new void Start()
         {
-            if (!IsOwner)
-                return;
+            
+
+
+
+            //temporary
+            //if (!IsOwner)
+                //return;
+            //temporary
 
             base.Start();
         }
 
         protected new void Update()
         {
-            if (!IsOwner)
-                return;
+            //temporary
+            //if (!IsOwner)
+                //return;
+            //temporary
 
             base.Update();
 

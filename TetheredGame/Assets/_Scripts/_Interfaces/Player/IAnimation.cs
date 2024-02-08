@@ -8,6 +8,7 @@ public interface IAnimation
     void SetTrigger(string parameterName);
     void SetBool(string parameterName, bool value);
     void SetSpeed(float value);
+    float GetSpeed();
     Vector3 GetVelocity();
     void AddVelocity(Vector3 velocity);
     void SetVelocity(Vector3 velocity);

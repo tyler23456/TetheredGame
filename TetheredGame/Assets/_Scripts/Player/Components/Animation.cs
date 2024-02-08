@@ -4,13 +4,16 @@ using UnityEngine;
 
 namespace TG.UserPlayer
 {
+    [System.Serializable]
     public class Animation : IAnimation
     {
         public Transform getRoot => throw new System.NotImplementedException();
+        [SerializeField] Animator animator;
 
         public void AddVelocity(Vector3 velocity)
         {
-            throw new System.NotImplementedException();
+            animator.SetFloat("velocityX", animator.GetFloat("velocityX") + velocity.x);
+            animator.SetFloat("velocityZ", animator.GetFloat("velocityZ") + velocity.z);
         }
 
         public void AddVelocityAndSetSpeed(Vector3 velocity, float speed)
@@ -30,7 +33,12 @@ namespace TG.UserPlayer
 
         public void SetSpeed(float value)
         {
-            throw new System.NotImplementedException();
+            animator.SetFloat("speed", value);
+        }
+
+        public float GetSpeed()
+        {
+            return animator.GetFloat("speed");
         }
 
         public void SetTrigger(string parameterName)
@@ -40,7 +48,8 @@ namespace TG.UserPlayer
 
         public void SetVelocity(Vector3 velocity)
         {
-            throw new System.NotImplementedException();
+            animator.SetFloat("velocityX", velocity.x);
+            animator.SetFloat("velocityZ", velocity.z);
         }
     }
 }
