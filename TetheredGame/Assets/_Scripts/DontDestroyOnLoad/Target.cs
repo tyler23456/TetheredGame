@@ -7,7 +7,7 @@ namespace GT.DontDestroyOnLoad
 {
     public class Target : NetworkBehaviour, ITarget
     {
-        Transform targetTransform;
+        [SerializeField] Transform targetTransform;
 
         public bool hasTarget => targetTransform != null;
         public Vector3 getPosition => targetTransform.position;

@@ -6,18 +6,25 @@ namespace TG.AI
 {
     public class ChaseNode : ActionNode
     {
+        ITarget target;
+
         protected override void OnStart()
         {
+            target = GameObject.Find("/DontDestroyOnLoad").GetComponent<ITarget>();
             state = State.Success;
-        }       
+        }
 
         protected override State OnUpdate()
         {
-            if (!GameObject.Find("/DontDestroyOnLoad").GetComponent<ITarget>().hasTarget)
+            if (!target.hasTarget)
                 return State.Failure;
 
-            board.agent.destination = GameObject.Find("/DontDestroyOnLoad").GetComponent<ITarget>().getPosition;
-            //board.agent.Move(board.agent.desiredVelocity);
+            board.user.getAnimation.SetVelocity(Vector3.zero);
+
+            board.agent.destination = target.getPosition;
+            board.user.getAnimation.AddVelocity(Vector3.forward);
+
+            board.user.getOrientation.Forward(board.agent.desiredVelocity.normalized);
 
             return state;
         }

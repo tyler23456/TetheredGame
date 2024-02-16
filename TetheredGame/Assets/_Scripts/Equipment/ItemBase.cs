@@ -4,12 +4,17 @@ using UnityEngine;
 
 namespace TG.Equipment
 {
+
     public abstract class ItemBase : ScriptableObject
     {
         [SerializeField] Sprite icon;
 
         public Sprite getIcon { get; }
+        public string getName => name;
+        public Object getEquipment => null;
+        public string getAnimatorParameter => "default";
 
+        public abstract void Initialize();
         public abstract void Use(GameObject user);
     }
 }

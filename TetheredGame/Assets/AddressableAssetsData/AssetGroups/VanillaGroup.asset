@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: VanillaGroup
+  m_EditorClassIdentifier: 
+  m_GroupName: VanillaGroup
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 1c5483dada705664a92ab1b86b9f58fc
+  m_SerializeEntries:
+  - m_GUID: 74b5fb5dd4b6074439827b6f72268f8d
+    m_Address: Assets/_User/Characters/Steps/ConcreteSprint
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ConcreteSprint
+  - m_GUID: fe6bd405ba483a14dad2aa6c6ad8d7c7
+    m_Address: Assets/_User/Characters/Steps/ConcreteWalk
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ConcreteWalk
+  - m_GUID: 5a9ded0e7058aab43a148e33911da728
+    m_Address: Assets/_User/Characters/Steps/DirtSprint
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - DirtSprint
+  - m_GUID: 0d2e0bdebb8b58b44a5dab58e89dd61d
+    m_Address: Assets/_User/Characters/Steps/DirtWalk
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - DirtWalk
+  - m_GUID: a3b49d0f06194ad428053e3f2e1af9b2
+    m_Address: Assets/_User/Characters/Steps/EmptySprint
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - EmptySprint
+  - m_GUID: 76f3c1454400da040b62baadc85769b8
+    m_Address: Assets/_User/Characters/Steps/EmptyWalk
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - EmptyWalk
+  - m_GUID: 049c867567e635446a05c34f4b220920
+    m_Address: Assets/_User/Characters/Steps/GrassSprint
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GrassSprint
+  - m_GUID: 3c8ffc740a006c94ca68ad0671908f88
+    m_Address: Assets/_User/Characters/Steps/GrassWalk
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GrassWalk
+  - m_GUID: 1604069e414867648b871f1d861fdca9
+    m_Address: Assets/_User/Characters/Steps/GravelSprint
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GravelSprint
+  - m_GUID: 9a5399bd590f7734c96708c3c1fa0461
+    m_Address: Assets/_User/Characters/Steps/GravelWalk
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GravelWalk
+  - m_GUID: 7f862c80c83d36d418b8436babe3694f
+    m_Address: Assets/_User/Characters/Steps/MetalSprint
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MetalSprint
+  - m_GUID: 31b5ba19828a21a489a51f7e4abe557f
+    m_Address: Assets/_User/Characters/Steps/MetalWalk
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MetalWalk
+  - m_GUID: 8857ed34a507f7f429bacc98455d1d7e
+    m_Address: Assets/_User/Characters/Steps/WoodSprint
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WoodSprint
+  - m_GUID: 04e26f60c0bdcac4e927f0fb77ad21dd
+    m_Address: Assets/_User/Characters/Steps/WoodWalk
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WoodWalk
+  - m_GUID: 8d42f8de71ca1bc448855921677846c7
+    m_Address: Assets/_User/Characters/Audio
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Audio
+  - m_GUID: 300944ea08456eb45ae65f503e3a82b4
+    m_Address: Assets/_Scriptable/Equipment
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Equipment
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: adef9eee19d02e44181ccdbac9bfb8fe, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 356b0b1bb00b88742bcb3e7ae1896587, type: 2}
+    - {fileID: 11400000, guid: e926dc7ef23a2534fa130414e2473b4a, type: 2}

@@ -12,6 +12,8 @@ EditorBuildSettings:
     path: Assets/_User/RPG_FPS_game_assets_industrial/Map_v1.unity
     guid: 5a463281e6e238742a45430f11e82829
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: ffd536c2843d16a499cba2759b1594ec,
+      type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: e0d574a4d6f2b22488bd9b88703c8398,
       type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 3573235cc49c6104e830d4e514accd73,

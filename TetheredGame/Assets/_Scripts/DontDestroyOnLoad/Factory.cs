@@ -13,22 +13,6 @@ namespace TG.DontDestroyOnLoad
         [SerializeField] GameObject mainCamera;
         [SerializeField] AudioSource audioSource;
 
-        [SerializeField] AssetLabelReference propsReference;
-        [SerializeField] AssetLabelReference promptsReference;
-        [SerializeField] AssetLabelReference abilitiesReference;
-        [SerializeField] AssetLabelReference armorReference;
-        [SerializeField] AssetLabelReference playerHitReference;
-        [SerializeField] AssetLabelReference generalSFXReference;
-        [SerializeField] AssetLabelReference itemIconsReference;
-        [SerializeField] AssetLabelReference uIElementsReference;
-        [SerializeField] AssetLabelReference spritesReference;
-        [SerializeField] AssetLabelReference shakeDataReference;
-        [SerializeField] AssetLabelReference missionsReference;
-
-        [SerializeField] AssetLabelReference genericHitReference;
-        [SerializeField] AssetLabelReference woodHitReference;
-        [SerializeField] AssetLabelReference metalHitReference;
-
         [SerializeField] AssetLabelReference concreteSprintReference;
         [SerializeField] AssetLabelReference concreteWalkReference;
         [SerializeField] AssetLabelReference dirtSprintReference;
@@ -43,51 +27,20 @@ namespace TG.DontDestroyOnLoad
         [SerializeField] AssetLabelReference metalWalkReference;
         [SerializeField] AssetLabelReference woodSprintReference;
         [SerializeField] AssetLabelReference woodWalkReference;
+        [SerializeField] AssetLabelReference AudioReference;
+        [SerializeField] AssetLabelReference equipmentReference;
 
-
-        public Dictionary<string, GameObject> props { get; private set; } = new Dictionary<string, GameObject>();
-        public Dictionary<string, IEquipment> equipment { get; private set; } = new Dictionary<string, IEquipment>();
-        public Dictionary<string, List<AudioClip>> hitSFX { get; private set; } = new Dictionary<string, List<AudioClip>>();
         public Dictionary<string, List<AudioClip>> StepSFX { get; private set; } = new Dictionary<string, List<AudioClip>>();
-        public Dictionary<string, AudioClip> generalSFX { get; private set; } = new Dictionary<string, AudioClip>();
-        public Dictionary<string, Sprite> itemIcons { get; private set; } = new Dictionary<string, Sprite>();
-        public Dictionary<string, GameObject> uIElements { get; private set; } = new Dictionary<string, GameObject>();
-
-        public Dictionary<string, Sprite> sprites { get; private set; } = new Dictionary<string, Sprite>();
+        public Dictionary<string, AudioClip> userAudio { get; private set; } = new Dictionary<string, AudioClip>();
+        public Dictionary<string, IEquipment> equipment { get; private set; } = new Dictionary<string, IEquipment>();
 
         public GameObject getPlayer => player;
         public GameObject getMainCamera => mainCamera;
         public AudioSource getAudioSource => audioSource;
-        public GameObject getDamageText => uIElements["DamageText"];
 
         public void Awake()
         {
             audioSource.ignoreListenerPause = true;
-
-            Addressables.LoadAssetsAsync<GameObject>(propsReference, (prop) =>
-            {
-                props.Add(prop.name, prop);
-            }).WaitForCompletion();
-
-            Addressables.LoadAssetsAsync<IEquipment>(abilitiesReference, (ability) =>
-            {
-                equipment.Add(ability.getIcon.name, ability);
-            }).WaitForCompletion();
-
-            Addressables.LoadAssetsAsync<Sprite>(itemIconsReference, (itemIcon) =>
-            {
-                itemIcons.Add(itemIcon.name, itemIcon);
-            }).WaitForCompletion();
-
-            Addressables.LoadAssetsAsync<GameObject>(uIElementsReference, (uIElement) =>
-            {
-                uIElements.Add(uIElement.name, uIElement);
-            }).WaitForCompletion();
-
-            Addressables.LoadAssetsAsync<Sprite>(spritesReference, (sprite) =>
-            {
-                sprites.Add(sprite.name, sprite);
-            }).WaitForCompletion();
 
             List<AssetLabelReference> stepSFXLabelReferences = new List<AssetLabelReference>
             {
@@ -112,31 +65,18 @@ namespace TG.DontDestroyOnLoad
             }
 
 
-            List<AssetLabelReference> hitSFXLabelReferences = new List<AssetLabelReference>
+            userAudio = new Dictionary<string, AudioClip>();
+            Addressables.LoadAssetsAsync<AudioClip>(AudioReference, (clip) =>
             {
-            playerHitReference,
-            genericHitReference,
-            woodHitReference,
-            metalHitReference
-            };
-
-            List<AudioClip> hitSFXType = null;
-            foreach (AssetLabelReference label in hitSFXLabelReferences)
-            {
-                hitSFXType = new List<AudioClip>();
-                Addressables.LoadAssetsAsync<AudioClip>(label, (clip) =>
-                {
-                    hitSFXType.Add(clip);
-                }).WaitForCompletion();
-                hitSFX.Add(label.labelString, hitSFXType);
-            }
-
-            generalSFX = new Dictionary<string, AudioClip>();
-            Addressables.LoadAssetsAsync<AudioClip>(generalSFXReference, (clip) =>
-            {
-                generalSFX.Add(clip.name, clip);
+                userAudio.Add(clip.name, clip);
             }).WaitForCompletion();
 
+            equipment = new Dictionary<string, IEquipment>();
+            Addressables.LoadAssetsAsync<IEquipment>(equipmentReference, (clip) =>
+            {
+                equipment.Add(clip.getName, clip);
+                clip.Initialize();
+            }).WaitForCompletion();
         }
 
         public void MovePlayerTo(Vector3 position, Vector3 forward)

@@ -7,13 +7,14 @@ namespace TG.UserPlayer
     [System.Serializable]
     public class Animation : IAnimation
     {
+        public float dampTime = 0.15f;
         public Transform getRoot => throw new System.NotImplementedException();
         [SerializeField] Animator animator;
 
         public void AddVelocity(Vector3 velocity)
         {
-            animator.SetFloat("velocityX", animator.GetFloat("velocityX") + velocity.x);
-            animator.SetFloat("velocityZ", animator.GetFloat("velocityZ") + velocity.z);
+            animator.SetFloat("velocityX", animator.GetFloat("velocityX") + velocity.x, dampTime, Time.deltaTime);
+            animator.SetFloat("velocityZ", animator.GetFloat("velocityZ") + velocity.z, dampTime, Time.deltaTime);
         }
 
         public void AddVelocityAndSetSpeed(Vector3 velocity, float speed)
@@ -48,8 +49,8 @@ namespace TG.UserPlayer
 
         public void SetVelocity(Vector3 velocity)
         {
-            animator.SetFloat("velocityX", velocity.x);
-            animator.SetFloat("velocityZ", velocity.z);
+            animator.SetFloat("velocityX", velocity.x, dampTime, Time.deltaTime);
+            animator.SetFloat("velocityZ", velocity.z, dampTime, Time.deltaTime);
         }
     }
 }

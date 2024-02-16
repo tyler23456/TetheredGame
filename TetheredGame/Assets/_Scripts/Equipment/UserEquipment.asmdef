@@ -1,3 +1,16 @@
 {
-	"name": "TGEquipment"
+    "name": "TGEquipment",
+    "rootNamespace": "",
+    "references": [
+        "GUID:74bb54a8f681dfe4c993cae7981dfc2e"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

@@ -10,7 +10,8 @@ public interface ICharacter
     string tag { get; set; }
     bool enabled { get; set; }
 
-
+    Collider getCollider { get; }
+    Vector3 getCenter { get; }
     Vector3 getPosition { get; }
     Vector3 getForward { get; }
     IMovement getMovement { get; }
@@ -18,6 +19,8 @@ public interface ICharacter
     IAnimation getAnimation { get; }
     IStats getStats { get; }
     IEquipped getEquipped { get; }
+
+    bool isVisible { get; }
 
     void SpawnEffectByName(string name);
 }

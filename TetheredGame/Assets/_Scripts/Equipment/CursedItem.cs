@@ -6,6 +6,11 @@ namespace TG.Equipment
 {
     public class CursedItem : ItemBase
     {
+        public override void Initialize()
+        {
+
+        }
+
         public override void Use(GameObject user)
         {
             throw new System.NotImplementedException();
