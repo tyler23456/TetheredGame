@@ -8,8 +8,7 @@ using UnityEngine.Playables;
 public class Blackboard
 {
     public static IFactory factory;
-    public static ITarget target;
-    public static IGlobalAttributes globalAttributes;
+    public static IGlobal global;
 
     public static Dictionary<string, Transform> teleportDestinations = new Dictionary<string, Transform>();
 
@@ -53,8 +52,7 @@ public class Blackboard
 
         GameObject dontDestroyOnLoad = GameObject.Find("/DontDestroyOnLoad");
         factory = dontDestroyOnLoad.GetComponent<IFactory>();
-        target = dontDestroyOnLoad.GetComponent<ITarget>();
-        globalAttributes = dontDestroyOnLoad.GetComponent<IGlobalAttributes>();
+        global = dontDestroyOnLoad.GetComponent<IGlobal>();
 
         agent = gameObject.GetComponent<NavMeshAgent>();
         animation = gameObject.GetComponent<Animation>();

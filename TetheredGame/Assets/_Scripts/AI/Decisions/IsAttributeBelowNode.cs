@@ -16,7 +16,7 @@ namespace TG.AI
 
         protected override State OnUpdate()
         {
-            if (Blackboard.target.getStats.GetAttribute(attribute) < threshold)
+            if (Blackboard.global.target.getStats.GetAttribute(attribute) < threshold)
                 state = State.Success;
             else
                 state = State.Failure;

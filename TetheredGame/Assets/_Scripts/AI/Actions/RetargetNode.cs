@@ -8,17 +8,19 @@ namespace TG.AI
     {
         protected override void OnStart()
         {
-            throw new System.NotImplementedException();
+            state = State.Running;
         }
 
-        protected override void OnStop()
-        {
-            throw new System.NotImplementedException();
-        }
+        
 
         protected override State OnUpdate()
         {
-            throw new System.NotImplementedException();
+
+
+
+            return state;
         }
+
+        protected override void OnStop() { }
     }
 }
