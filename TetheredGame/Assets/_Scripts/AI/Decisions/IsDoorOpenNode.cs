@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TG.AI
 {
-    public class IsDoorOpen : DecoratorNode
+    public class IsDoorOpenNode : DecoratorNode
     {
         protected override void OnStart()
         {

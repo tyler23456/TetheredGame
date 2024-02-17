@@ -56,7 +56,10 @@ namespace TG.UserPlayer
 
         public void AddOnValueChangedTo(string attributeName, Action<int> action)
         {
-            events.Add(attributeName, action);
+            if (events.ContainsKey(attributeName))
+                events[attributeName] += action;
+            else
+                events.Add(attributeName, action);
         }
     }
 }

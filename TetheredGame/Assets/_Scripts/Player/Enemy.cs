@@ -6,13 +6,18 @@ namespace TG.UserPlayer
 {
     public class Enemy : Character, ICharacter
     {
+        Animator animator;
+
         protected new void Start()
         {
             //if (!IsOwner)
                 //return;
 
             base.Start();
-            GetComponent<Animator>().speed = 0.6f;
+            //animator = GetComponent<Animator>();
+            //animator.speed = 0.6f;
+
+            //stats.AddOnValueChangedTo("Thrill", (value) => animator.speed = value / 100f * ANIMATOR_SPEED_MULTIPLIER);
         }
 
         protected new void Update()

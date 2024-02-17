@@ -4,10 +4,10 @@ using UnityEngine;
 
 public interface IEquipment
 {
+    void Awake();
     string getName { get; }
     Object getEquipment { get; }
     string getAnimatorParameter { get; }
     Sprite getIcon { get; }
-    void Initialize();
     void Use(GameObject user);
 }

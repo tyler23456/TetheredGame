@@ -6,6 +6,8 @@ namespace TG.UserPlayer
 {
     public class Character : Runner, ICharacter
     {
+        const float ANIMATOR_SPEED_MULTIPLIER = 1f;
+
         bool isInitialized = false;
         IFactory factory;
 
@@ -17,7 +19,7 @@ namespace TG.UserPlayer
         [SerializeField] protected Equipped equipped;
         [SerializeField] protected StepSFX stepSFX;
         [SerializeField] protected SoundFX soundFX;
-
+ 
         public Collider getCollider => userCollider;
         public Vector3 getCenter => userCollider.bounds.center;
         public Vector3 getPosition => transform.position;
@@ -48,6 +50,9 @@ namespace TG.UserPlayer
 
             stats.Initialize();
             base.Start();
+
+            Animator animator = GetComponent<Animator>();
+            stats.AddOnValueChangedTo("Thrill", (value) => animator.speed = 1 + (value / 100f * ANIMATOR_SPEED_MULTIPLIER));
         }
 
         protected new void Update()

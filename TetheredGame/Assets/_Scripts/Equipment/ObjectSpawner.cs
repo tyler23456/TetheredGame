@@ -17,20 +17,17 @@ namespace TG.Equipment
         [SerializeField] GameObject prefab;
         [SerializeField] float count;
 
-        public override void Initialize()
+        public new void Awake()
         {
-            if (isInitialized)
-                return;
-
-            isInitialized = true;
+            base.Awake();
             colliders = GameObject.Find("/Office/Floors").GetComponentsInChildren<Collider>();
             parent = GameObject.Find("/Office/Spawned").transform;
-            Use(null);
         }
 
         public override void Use(GameObject user)
         {
-            Debug.Log("DebugUse has been called");
+            ICharacter character = user.GetComponent<ICharacter>();
+            character.getStats.OffsetAttribute("Thrill", 20);
 
             //this method does not check for collision
             for (int i = 0; i < count; i++)

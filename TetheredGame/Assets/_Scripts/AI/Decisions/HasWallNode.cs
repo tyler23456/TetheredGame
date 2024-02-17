@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TG.AI
 {
-    public class HasWall : DecoratorNode
+    public class HasWallNode : DecoratorNode
     {
         protected override void OnStart()
         {

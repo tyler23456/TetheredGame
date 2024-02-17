@@ -9,13 +9,11 @@ namespace TG.Equipment
     {
         [SerializeField] GameObject prefab;
 
-        public override void Initialize()
-        {
-            
-        }
-
         public override void Use(GameObject user)
         {
+            ICharacter character = user.GetComponent<ICharacter>();
+            character.getStats.OffsetAttribute("Thrill", 20);
+
             GameObject obj = GameObject.Instantiate(prefab, user.transform.GetChild(0));
             obj.transform.localPosition = Vector3.zero;
             obj.transform.localRotation = Quaternion.identity;

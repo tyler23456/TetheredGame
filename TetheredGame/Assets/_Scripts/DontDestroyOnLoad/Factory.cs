@@ -75,7 +75,7 @@ namespace TG.DontDestroyOnLoad
             Addressables.LoadAssetsAsync<IEquipment>(equipmentReference, (clip) =>
             {
                 equipment.Add(clip.getName, clip);
-                clip.Initialize();
+                clip.Awake();
             }).WaitForCompletion();
         }
 

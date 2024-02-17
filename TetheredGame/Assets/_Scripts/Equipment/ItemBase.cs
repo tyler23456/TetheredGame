@@ -7,6 +7,8 @@ namespace TG.Equipment
 
     public abstract class ItemBase : ScriptableObject
     {
+        protected static IGlobal global;
+
         [SerializeField] Sprite icon;
 
         public Sprite getIcon { get; }
@@ -14,7 +16,11 @@ namespace TG.Equipment
         public Object getEquipment => null;
         public string getAnimatorParameter => "default";
 
-        public abstract void Initialize();
-        public abstract void Use(GameObject user);
+        public void Awake()
+        {
+            global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
+        }
+
+        public virtual void Use(GameObject user) { }
     }
 }

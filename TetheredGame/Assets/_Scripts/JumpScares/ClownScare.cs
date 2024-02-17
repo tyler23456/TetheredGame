@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace TG.JumpScares
 {
-    public class ClownScare : MonoBehaviour, IJumpScare
+    public class ClownScare : JumpScareBase, IJumpScare
     {
-        void IJumpScare.Scare()
+        public void Scare()
         {
-            throw new System.NotImplementedException();
+            
         }
     }
 }
