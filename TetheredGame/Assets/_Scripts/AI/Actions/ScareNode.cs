@@ -4,21 +4,20 @@ using UnityEngine;
 
 namespace TG.AI
 {
-    public class ScareNode : ActionNode
+    public class ScareNode : WaitNode
     {
         protected override void OnStart()
         {
-            throw new System.NotImplementedException();
-        }
-
-        protected override void OnStop()
-        {
-            throw new System.NotImplementedException();
+            state = State.Running;
+            board.jumpScare.Scare();
         }
 
         protected override State OnUpdate()
         {
-            throw new System.NotImplementedException();
+            state = base.Update();
+            return state;
         }
+
+        protected override void OnStop() { }
     }
 }

@@ -6,7 +6,7 @@ namespace TG.JumpScares
 {
     public class ClownScare : JumpScareBase, IJumpScare
     {
-        public void Scare()
+        public override void Scare()
         {
             
         }

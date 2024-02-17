@@ -40,7 +40,6 @@ namespace TG.UserPlayer
                     character.getAnimation.SetSpeed(2f);
                 else
                     character.getAnimation.SetSpeed(1f);
-
             }
             else
             {
@@ -53,11 +52,10 @@ namespace TG.UserPlayer
         }
 
         public void Movement(Vector2 inputVector)
-        {
-            float speed = 10f;
-            
+        {       
             Vector3 inputVector3D = new Vector3(inputVector.x, 0f, inputVector.y);
-            character.getAnimation.AddVelocity(inputVector3D); //* character.getAnimation.GetSpeed());
+            float speedMultiplier = (character.getStats.GetAttribute("Thrill") / 100f) + 1;
+            character.getAnimation.AddVelocity(inputVector3D * speedMultiplier);
             
         }
     }

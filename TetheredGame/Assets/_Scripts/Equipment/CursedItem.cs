@@ -14,6 +14,7 @@ namespace TG.Equipment
         {
             ICharacter newTarget = user.GetComponent<ICharacter>();
 
+            global.IncrementRound();
             global.SetTarget(newTarget);
 
             int roundAdder = (int)(global.round * ROUND_MULTIPLIER);

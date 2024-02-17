@@ -51,8 +51,8 @@ namespace TG.UserPlayer
             stats.Initialize();
             base.Start();
 
-            Animator animator = GetComponent<Animator>();
-            stats.AddOnValueChangedTo("Thrill", (value) => animator.speed = 1 + (value / 100f * ANIMATOR_SPEED_MULTIPLIER));
+            //Animator animator = GetComponent<Animator>();
+            //stats.AddOnValueChangedTo("Thrill", (value) => animator.speed = 1 + (value / 100f * ANIMATOR_SPEED_MULTIPLIER));
         }
 
         protected new void Update()

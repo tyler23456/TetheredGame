@@ -16,9 +16,12 @@ namespace TG.UserPlayer
             //if (!IsOwner)
                 //return;
 
-            base.Start();
-            
+            base.Start();   
             controller = GetComponent<CharacterController>();
+
+            //-----------------------------------------
+            GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>().SetTarget(this);
+            //-----------------------------------------
         }
 
         protected new void Update()

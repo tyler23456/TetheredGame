@@ -15,4 +15,6 @@ public interface ILobby
     void UpdatePlayerName(string newPlayerName);
     void LeaveLobby();
     void KickPlayer(string playerID);
+
+    int GetAverageAttribute(string attributeName);
 }

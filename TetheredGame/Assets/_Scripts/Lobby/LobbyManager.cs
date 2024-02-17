@@ -6,6 +6,7 @@ using Unity.Services.Lobbies;
 using Unity.Services.Lobbies.Models;
 using UnityEngine;
 using System;
+using Unity.Netcode;
 
 namespace TG.Network
 {
@@ -228,6 +229,21 @@ namespace TG.Network
                     { "PlayerName",  new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, playerName) }
                 }
             };
-        }  
+        }
+
+        public int GetAverageAttribute(string attributeName)
+        {
+            float result = 0f;
+            int playerCount = 0;
+
+            foreach (KeyValuePair<ulong, NetworkClient> connectedClient in NetworkManager.Singleton.ConnectedClients)
+            {
+                IStats stats = connectedClient.Value.PlayerObject.GetComponent<ICharacter>().getStats;
+                result += stats.GetAttribute(attributeName);
+                playerCount++;
+            }
+
+            return (int)(result / playerCount);
+        }
     }
 }

@@ -17,9 +17,10 @@ namespace TG.AI
                 return State.Failure;
 
             board.user.getAnimation.SetVelocity(Vector3.zero);
-
             board.agent.destination = Blackboard.global.target.getPosition;
-            board.user.getAnimation.AddVelocity(Vector3.forward);
+
+            float speedMultiplier = (board.user.getStats.GetAttribute("Thrill") / 100f) + 1;
+            board.user.getAnimation.AddVelocity(Vector3.forward * speedMultiplier);
 
             board.user.getOrientation.Forward(board.agent.desiredVelocity.normalized);
 

@@ -70,7 +70,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 18925747746bb3040bbe351516d22e3e
-  position: {x: 0, y: 138, z: 0}
+  position: {x: 0, y: 137, z: 0}
 --- !u!114 &4217869195552710585
 MonoBehaviour:
   m_ObjectHideFlags: 0

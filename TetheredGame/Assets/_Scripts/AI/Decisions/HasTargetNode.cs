@@ -8,15 +8,17 @@ namespace TG.AI
     {
         protected override void OnStart()
         {
-            
+            state = State.Running;
         }
 
         protected override State OnUpdate()
         {
+            if (Blackboard.global.target == null)
+                state = State.Failure;
+            else
+                state = State.Success;
 
-
-
-            return state;
+            return base.OnUpdate();
         }
 
         protected override void OnStop() { }
