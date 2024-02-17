@@ -18,7 +18,7 @@ namespace TG.Equipment
         public override void Use(GameObject user)
         {
             ICharacter character = user.GetComponent<ICharacter>();
-            character.getStats.AddEffect(getName, attribute, offset);
+            //character.getStats.AddEffect(getName, attribute, offset);
         }
     }
 }

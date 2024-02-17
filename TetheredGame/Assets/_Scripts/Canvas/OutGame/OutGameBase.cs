@@ -12,7 +12,7 @@ namespace TG.Canvas
         protected void Awake()
         {
             lobby = GameObject.Find("/DontDestroyOnLoad").GetComponent<ILobby>();
-            outGame = GameObject.Find("/DontDestroyOnLoad/Canvas/OutGame").GetComponent<OutGameBehavior>();
+            outGame = GameObject.Find("/DontDestroyOnLoad/CanvasWorld/OutGame").GetComponent<OutGameBehavior>();
         }
 
         protected void Update()

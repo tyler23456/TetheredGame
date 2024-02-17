@@ -7,15 +7,18 @@ namespace GT.DontDestroyOnLoad
 {
     public class Target : NetworkBehaviour, ITarget
     {
-        [SerializeField] Transform targetTransform;
+        ICharacter character;
 
-        public bool hasTarget => targetTransform != null;
-        public Vector3 getPosition => targetTransform.position;
-        public Vector3 getForward => targetTransform.forward;
+        public bool hasTarget => character != null;
+        public Vector3 getPosition => character.getPosition;
+        public Vector3 getForward => character.getForward;
+        public ICharacter getCharacter => character;
+        public Vector3 getCenter => character.getCollider.bounds.center;
+        public IStats getStats => character.getStats;
 
-        public void Set(Transform targetTransform)
+        public void Set(ICharacter character)
         {
-            this.targetTransform = targetTransform;
+            this.character = character;
         }
     }
 }

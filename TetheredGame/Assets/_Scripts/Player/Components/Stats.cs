@@ -1,50 +1,62 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 namespace TG.UserPlayer
 {
     [System.Serializable]
     public class Stats : IStats
     {
-        Dictionary<string, float> attributes = new Dictionary<string, float>();
-        Dictionary<string, float> staticAttributes = new Dictionary<string, float>();
-        Dictionary<string, (string, float)> effects = new Dictionary<string, (string, float)>();
+        Dictionary<string, int> attributes = new Dictionary<string, int>();
+        Dictionary<string, Action<int>> events = new Dictionary<string, Action<int>>();
+        Dictionary<string, int> maxAttributes = new Dictionary<string, int>();
+
+        float timeAccumulator = 0;
+        const float TIME_DURATION = 5f;
 
         public void Initialize()
         {
-            staticAttributes.Add("Sanity", 1f);
-            staticAttributes.Add("Adrenaline", 1f);
-            staticAttributes.Add("Speed", 1f);
-            staticAttributes.Add("Lives", 1f);
-            Refresh();
+            maxAttributes.Add("Sanity", 100);
+            maxAttributes.Add("Thrill", 100);
+            maxAttributes.Add("Lives", 9);
+
+            attributes.Add("Sanity", 100);
+            attributes.Add("Thrill", 0);
+            attributes.Add("Lives", 1);
         }
-        
+
+        public void Update()
+        {
+            if (Time.time - timeAccumulator < TIME_DURATION)
+                return;
+
+            timeAccumulator = Time.time;
+
+            OffsetAttribute("Sanity", 1);
+            OffsetAttribute("Thrill", -1);
+
+        }
+
         public float GetAttribute(string attributeName)
         {
             return attributes[attributeName];
         }
 
-        void Refresh()
+        public void OffsetAttribute(string attributeName, int offsetAmount)
         {
-            attributes.Clear();
-            foreach (KeyValuePair<string, float> staticAttribute in staticAttributes)
-                attributes.Add(staticAttribute.Key, staticAttribute.Value);
+            attributes[attributeName] += offsetAmount;
+            attributes[attributeName] = Mathf.Clamp(attributes[attributeName], 0, maxAttributes[attributeName]);
 
-            foreach (KeyValuePair<string, (string, float)> effect in effects)
-                attributes.Add(effect.Value.Item1, effect.Value.Item2);
+            if (!events.ContainsKey(attributeName))
+                return;
+
+            events[attributeName].Invoke(attributes[attributeName]);
         }
 
-        public void AddEffect(string effectName, string attributeName, float offset)
+        public void AddOnValueChangedTo(string attributeName, Action<int> action)
         {
-            effects.Add(effectName, (attributeName, offset));
-            Refresh();
-        }
-
-        public void RemoveEffect(string effectName)
-        {
-            effects.Remove(effectName);
-            Refresh();
+            events.Add(attributeName, action);
         }
     }
 }

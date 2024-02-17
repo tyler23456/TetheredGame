@@ -8,7 +8,8 @@ using UnityEngine.Playables;
 public class Blackboard
 {
     public static IFactory factory;
-    public static ICharacter player;
+    public static ITarget target;
+    public static IGlobalAttributes globalAttributes;
 
     public static Dictionary<string, Transform> teleportDestinations = new Dictionary<string, Transform>();
 
@@ -25,7 +26,6 @@ public class Blackboard
     [SerializeField] public float speed;
 
     public ICharacter user;
-    public ICharacter target;
 
     [HideInInspector] public GameObject gameObject;
     [HideInInspector] public Progress progress;
@@ -53,13 +53,13 @@ public class Blackboard
 
         GameObject dontDestroyOnLoad = GameObject.Find("/DontDestroyOnLoad");
         factory = dontDestroyOnLoad.GetComponent<IFactory>();
-        //player = factory.getPlayer.GetComponent<ICharacter>();
+        target = dontDestroyOnLoad.GetComponent<ITarget>();
+        globalAttributes = dontDestroyOnLoad.GetComponent<IGlobalAttributes>();
 
         agent = gameObject.GetComponent<NavMeshAgent>();
         animation = gameObject.GetComponent<Animation>();
 
         user = gameObject.GetComponent<ICharacter>();
-        target = player;
 
         progress = gameObject.GetComponent<Progress>();
         animator = gameObject.GetComponent<Animator>();      

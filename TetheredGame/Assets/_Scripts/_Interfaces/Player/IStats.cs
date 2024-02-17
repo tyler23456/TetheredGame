@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public interface IStats
 {
-    public float GetAttribute(string attributeName);
-    public void AddEffect(string effectName, string attributeName, float offset);
-    public void RemoveEffect(string effectName);
+    float GetAttribute(string attributeName);
+    void OffsetAttribute(string attributeName, int offsetAmount);
+    void AddOnValueChangedTo(string attributeName, Action<int> action);
 }

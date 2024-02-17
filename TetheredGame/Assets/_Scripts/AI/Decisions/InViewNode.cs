@@ -20,7 +20,7 @@ public class InViewNode : DecoratorNode
     {
         if (WithinLineOfSight())
             active = true;
-        else if (!useInnactiveDistance || useInnactiveDistance && Vector3.Distance(board.user.getCenter, board.target.getCenter) > innactiveDistance)
+        else if (!useInnactiveDistance || useInnactiveDistance && Vector3.Distance(board.user.getCenter, Blackboard.target.getCenter) > innactiveDistance)
             active = false;
         
         if (active)
@@ -35,7 +35,7 @@ public class InViewNode : DecoratorNode
 
     protected bool WithinLineOfSight()
     {
-        Vector3 direction = (board.target.getCenter - board.user.getCenter).normalized;
+        Vector3 direction = (Blackboard.target.getCenter - board.user.getCenter).normalized;
         float dotProduct = Vector3.Dot(board.user.getCenter, direction);
 
         if (dotProduct < Mathf.Cos(fieldOfView))
