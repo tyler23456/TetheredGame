@@ -1,0 +1,234 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6269219331870248559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c41d886656191ca498aa6927d1e656cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  board:
+    agent: {fileID: 0}
+    animation: {fileID: 0}
+    localProgress: 0
+    speed: 0
+    gameObject: {fileID: 0}
+    progress: {fileID: 0}
+    item: {fileID: 0}
+    hasItem: {fileID: 0}
+    userLock: {fileID: 0}
+    animator: {fileID: 0}
+    audioSource: {fileID: 0}
+    renderer: {fileID: 0}
+    collider: {fileID: 0}
+    hasGameObject: {fileID: 0}
+    playableDirector: {fileID: 0}
+    playableBinder: {fileID: 0}
+    otherAnimator: {fileID: 0}
+  childIndex: 0
+  children: []
+  nodeName: StopMovement
+  state: 0
+  started: 0
+  guid: 9e7e5c75faf57974196ad1effd9d1645
+  position: {x: 75, y: 221, z: 0}
+  duration: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5027e452b104ea4987deac850811bc4, type: 3}
+  m_Name: UserClown
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: 1771789681844739105}
+  nodes:
+  - {fileID: 1771789681844739105}
+  - {fileID: 1869253592957749140}
+  - {fileID: 2515588632591762787}
+  - {fileID: 2304138787308791073}
+  - {fileID: -6269219331870248559}
+  blackboard:
+    agent: {fileID: 0}
+    animation: {fileID: 0}
+    localProgress: 0
+    speed: 0
+    gameObject: {fileID: 0}
+    progress: {fileID: 0}
+    item: {fileID: 0}
+    hasItem: {fileID: 0}
+    userLock: {fileID: 0}
+    animator: {fileID: 0}
+    audioSource: {fileID: 0}
+    renderer: {fileID: 0}
+    collider: {fileID: 0}
+    hasGameObject: {fileID: 0}
+    playableDirector: {fileID: 0}
+    playableBinder: {fileID: 0}
+    otherAnimator: {fileID: 0}
+--- !u!114 &1771789681844739105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f58bfeaa1b4593b48a871317305e3f37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  board:
+    agent: {fileID: 0}
+    animation: {fileID: 0}
+    localProgress: 0
+    speed: 0
+    gameObject: {fileID: 0}
+    progress: {fileID: 0}
+    item: {fileID: 0}
+    hasItem: {fileID: 0}
+    userLock: {fileID: 0}
+    animator: {fileID: 0}
+    audioSource: {fileID: 0}
+    renderer: {fileID: 0}
+    collider: {fileID: 0}
+    hasGameObject: {fileID: 0}
+    playableDirector: {fileID: 0}
+    playableBinder: {fileID: 0}
+    otherAnimator: {fileID: 0}
+  childIndex: 0
+  children:
+  - {fileID: 1869253592957749140}
+  nodeName: Root
+  state: 0
+  started: 0
+  guid: 3abc84123cfee4c4eb838a97f357666f
+  position: {x: 0, y: -16, z: 0}
+--- !u!114 &1869253592957749140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2191a6368cd4db9498b0a09f2cf02044, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  board:
+    agent: {fileID: 0}
+    animation: {fileID: 0}
+    localProgress: 0
+    speed: 0
+    gameObject: {fileID: 0}
+    progress: {fileID: 0}
+    item: {fileID: 0}
+    hasItem: {fileID: 0}
+    userLock: {fileID: 0}
+    animator: {fileID: 0}
+    audioSource: {fileID: 0}
+    renderer: {fileID: 0}
+    collider: {fileID: 0}
+    hasGameObject: {fileID: 0}
+    playableDirector: {fileID: 0}
+    playableBinder: {fileID: 0}
+    otherAnimator: {fileID: 0}
+  childIndex: 0
+  children:
+  - {fileID: 2515588632591762787}
+  - {fileID: -6269219331870248559}
+  nodeName: Selector
+  state: 0
+  started: 0
+  guid: 4bb0dce5a3e27ee4c9017bd3567fe505
+  position: {x: 0, y: 96, z: 0}
+--- !u!114 &2304138787308791073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d908f28171c26b74989f1d6f54711cd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  board:
+    agent: {fileID: 0}
+    animation: {fileID: 0}
+    localProgress: 0
+    speed: 0
+    gameObject: {fileID: 0}
+    progress: {fileID: 0}
+    item: {fileID: 0}
+    hasItem: {fileID: 0}
+    userLock: {fileID: 0}
+    animator: {fileID: 0}
+    audioSource: {fileID: 0}
+    renderer: {fileID: 0}
+    collider: {fileID: 0}
+    hasGameObject: {fileID: 0}
+    playableDirector: {fileID: 0}
+    playableBinder: {fileID: 0}
+    otherAnimator: {fileID: 0}
+  childIndex: 0
+  children: []
+  nodeName: Chase
+  state: 0
+  started: 0
+  guid: 47dde829fc1a12f4bbe13f8435857c48
+  position: {x: -75, y: 336, z: 0}
+  duration: 1
+--- !u!114 &2515588632591762787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23ef3059782759a4b9a565d34d4ec91d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  board:
+    agent: {fileID: 0}
+    animation: {fileID: 0}
+    localProgress: 0
+    speed: 0
+    gameObject: {fileID: 0}
+    progress: {fileID: 0}
+    item: {fileID: 0}
+    hasItem: {fileID: 0}
+    userLock: {fileID: 0}
+    animator: {fileID: 0}
+    audioSource: {fileID: 0}
+    renderer: {fileID: 0}
+    collider: {fileID: 0}
+    hasGameObject: {fileID: 0}
+    playableDirector: {fileID: 0}
+    playableBinder: {fileID: 0}
+    otherAnimator: {fileID: 0}
+  childIndex: 0
+  children:
+  - {fileID: 2304138787308791073}
+  nodeName: InView
+  state: 0
+  started: 0
+  guid: de6553295bbfd8d44b2486a5e60fb42f
+  position: {x: -75, y: 221, z: 0}
+  activeDistance: 80
+  fieldOfView: 45
+  useInnactiveDistance: 1
+  innactiveDistance: 100

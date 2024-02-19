@@ -1,0 +1,229 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9010000389591375330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2191a6368cd4db9498b0a09f2cf02044, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  board:
+    agent: {fileID: 0}
+    animation: {fileID: 0}
+    localProgress: 0
+    speed: 0
+    gameObject: {fileID: 0}
+    progress: {fileID: 0}
+    item: {fileID: 0}
+    hasItem: {fileID: 0}
+    userLock: {fileID: 0}
+    animator: {fileID: 0}
+    audioSource: {fileID: 0}
+    renderer: {fileID: 0}
+    collider: {fileID: 0}
+    hasGameObject: {fileID: 0}
+    playableDirector: {fileID: 0}
+    playableBinder: {fileID: 0}
+    otherAnimator: {fileID: 0}
+  childIndex: 0
+  children:
+  - {fileID: -3122380080880999780}
+  - {fileID: 5126515881593940915}
+  nodeName: Selector
+  state: 0
+  started: 0
+  guid: 8f997b6ac250671438d091f129895d21
+  position: {x: 0, y: 97, z: 0}
+--- !u!114 &-3122380080880999780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 599641393762c36459983421035de471, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  board:
+    agent: {fileID: 0}
+    animation: {fileID: 0}
+    localProgress: 0
+    speed: 0
+    gameObject: {fileID: 0}
+    progress: {fileID: 0}
+    item: {fileID: 0}
+    hasItem: {fileID: 0}
+    userLock: {fileID: 0}
+    animator: {fileID: 0}
+    audioSource: {fileID: 0}
+    renderer: {fileID: 0}
+    collider: {fileID: 0}
+    hasGameObject: {fileID: 0}
+    playableDirector: {fileID: 0}
+    playableBinder: {fileID: 0}
+    otherAnimator: {fileID: 0}
+  childIndex: 0
+  children:
+  - {fileID: -2307778927479304759}
+  nodeName: IsObserved
+  state: 0
+  started: 0
+  guid: db24e26b58a54384ead3f77328d91eda
+  position: {x: -40, y: 254, z: 0}
+--- !u!114 &-2307778927479304759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c41d886656191ca498aa6927d1e656cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  board:
+    agent: {fileID: 0}
+    animation: {fileID: 0}
+    localProgress: 0
+    speed: 0
+    gameObject: {fileID: 0}
+    progress: {fileID: 0}
+    item: {fileID: 0}
+    hasItem: {fileID: 0}
+    userLock: {fileID: 0}
+    animator: {fileID: 0}
+    audioSource: {fileID: 0}
+    renderer: {fileID: 0}
+    collider: {fileID: 0}
+    hasGameObject: {fileID: 0}
+    playableDirector: {fileID: 0}
+    playableBinder: {fileID: 0}
+    otherAnimator: {fileID: 0}
+  childIndex: 0
+  children: []
+  nodeName: StopMovement
+  state: 0
+  started: 0
+  guid: e1698688d0d625145a45767f5bdbc33a
+  position: {x: -40, y: 356, z: 0}
+  duration: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5027e452b104ea4987deac850811bc4, type: 3}
+  m_Name: Mannequin
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: 1402166347478316253}
+  nodes:
+  - {fileID: 1402166347478316253}
+  - {fileID: 5126515881593940915}
+  - {fileID: -3122380080880999780}
+  - {fileID: -9010000389591375330}
+  - {fileID: -2307778927479304759}
+  blackboard:
+    agent: {fileID: 0}
+    animation: {fileID: 0}
+    localProgress: 0
+    speed: 0
+    gameObject: {fileID: 0}
+    progress: {fileID: 0}
+    item: {fileID: 0}
+    hasItem: {fileID: 0}
+    userLock: {fileID: 0}
+    animator: {fileID: 0}
+    audioSource: {fileID: 0}
+    renderer: {fileID: 0}
+    collider: {fileID: 0}
+    hasGameObject: {fileID: 0}
+    playableDirector: {fileID: 0}
+    playableBinder: {fileID: 0}
+    otherAnimator: {fileID: 0}
+--- !u!114 &1402166347478316253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f58bfeaa1b4593b48a871317305e3f37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  board:
+    agent: {fileID: 0}
+    animation: {fileID: 0}
+    localProgress: 0
+    speed: 0
+    gameObject: {fileID: 0}
+    progress: {fileID: 0}
+    item: {fileID: 0}
+    hasItem: {fileID: 0}
+    userLock: {fileID: 0}
+    animator: {fileID: 0}
+    audioSource: {fileID: 0}
+    renderer: {fileID: 0}
+    collider: {fileID: 0}
+    hasGameObject: {fileID: 0}
+    playableDirector: {fileID: 0}
+    playableBinder: {fileID: 0}
+    otherAnimator: {fileID: 0}
+  childIndex: 0
+  children:
+  - {fileID: -9010000389591375330}
+  nodeName: Root
+  state: 0
+  started: 0
+  guid: 3bc61a2af593ccf468779de70c2c2467
+  position: {x: 0, y: 0, z: 0}
+--- !u!114 &5126515881593940915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d908f28171c26b74989f1d6f54711cd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  board:
+    agent: {fileID: 0}
+    animation: {fileID: 0}
+    localProgress: 0
+    speed: 0
+    gameObject: {fileID: 0}
+    progress: {fileID: 0}
+    item: {fileID: 0}
+    hasItem: {fileID: 0}
+    userLock: {fileID: 0}
+    animator: {fileID: 0}
+    audioSource: {fileID: 0}
+    renderer: {fileID: 0}
+    collider: {fileID: 0}
+    hasGameObject: {fileID: 0}
+    playableDirector: {fileID: 0}
+    playableBinder: {fileID: 0}
+    otherAnimator: {fileID: 0}
+  childIndex: 0
+  children: []
+  nodeName: Chase
+  state: 0
+  started: 0
+  guid: 054eca5de1d7493489a6072d444866ba
+  position: {x: 110, y: 254, z: 0}

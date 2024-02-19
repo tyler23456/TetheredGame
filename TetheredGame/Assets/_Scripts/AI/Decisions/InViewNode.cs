@@ -36,12 +36,12 @@ public class InViewNode : DecoratorNode
     protected bool WithinLineOfSight()
     {
         Vector3 direction = (Blackboard.global.target.getCenter - board.user.getCenter).normalized;
-        float dotProduct = Vector3.Dot(board.user.getCenter, direction);
+        float dotProduct = Vector3.Dot(board.user.getForward, direction);
 
         if (dotProduct < Mathf.Cos(fieldOfView))
             return false;
 
-        if (!Physics.Raycast(board.user.getCenter, direction, out RaycastHit hit, activeDistance) || hit.transform != null && hit.transform.gameObject.name != "Player")
+        if (!Physics.Raycast(board.user.getCenter, direction, out RaycastHit hit, activeDistance) || hit.transform != null && hit.transform.gameObject.tag != "Player")
             return false;
 
         return true;

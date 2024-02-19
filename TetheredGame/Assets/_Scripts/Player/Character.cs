@@ -19,6 +19,7 @@ namespace TG.UserPlayer
         [SerializeField] protected Equipped equipped;
         [SerializeField] protected StepSFX stepSFX;
         [SerializeField] protected SoundFX soundFX;
+        [SerializeField] protected CameraVisibility cameraVisibility;
  
         public Collider getCollider => userCollider;
         public Vector3 getCenter => userCollider.bounds.center;
@@ -31,7 +32,7 @@ namespace TG.UserPlayer
         public IAnimation getAnimation => animation;
         public IStats getStats => stats;
 
-        public bool isVisible { get; private set; }
+        public bool isVisible => cameraVisibility.isVisible;
 
 
         protected new void Start()
@@ -77,16 +78,6 @@ namespace TG.UserPlayer
             movement.Update();
             orientation.Update();
             stats.Update();
-        }
-
-        protected void OnBecameVisible()
-        {
-            isVisible = true;
-        }
-
-        protected void OnBecameInvisible()
-        {
-            isVisible = false;
         }
 
         public void SpawnEffectByName(string name)

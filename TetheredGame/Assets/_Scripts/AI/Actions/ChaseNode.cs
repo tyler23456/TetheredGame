@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TG.AI
 {
-    public class ChaseNode : ActionNode
+    public class ChaseNode : WaitNode
     {
         protected override void OnStart()
         {
@@ -24,12 +24,9 @@ namespace TG.AI
 
             board.user.getOrientation.Forward(board.agent.desiredVelocity.normalized);
 
-            return state;
+            return base.OnUpdate();
         }
 
-        protected override void OnStop()
-        {
-
-        }
+        protected override void OnStop() { }
     }
 }
