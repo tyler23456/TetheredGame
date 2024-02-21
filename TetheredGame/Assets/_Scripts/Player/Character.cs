@@ -65,16 +65,6 @@ namespace TG.UserPlayer
 
             base.Update();
 
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                stats.OffsetAttribute("Thrill", 20);
-            }
-
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                stats.OffsetAttribute("Sanity", -20);
-            }
-
             movement.Update();
             orientation.Update();
             stats.Update();

@@ -67,7 +67,8 @@ namespace TG.UserPlayer
             if (activator == null)
                 return;
 
-            activator.userPosition = transform.position;
+            activator.impactPosition = hitInfo.point;
+            activator.userPosition = character.getPosition;
             activator.Activate();
         }
     }

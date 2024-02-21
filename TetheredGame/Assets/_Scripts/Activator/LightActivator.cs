@@ -12,7 +12,7 @@ namespace TG.Activator
         Material material;
         string emissionName = "_EmissionColor";
 
-        void IActivator.Activate()
+        public void Activate()
         {   
             foreach (Light light in lights)
             {
