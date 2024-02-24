@@ -11,6 +11,7 @@ namespace TG.DontDestroyOnLoad
     {
         [SerializeField] GameObject player;
         [SerializeField] GameObject mainCamera;
+        [SerializeField] Transform screenDisplay;
         [SerializeField] AudioSource audioSource;
 
         [SerializeField] AssetLabelReference concreteSprintReference;
@@ -29,14 +30,18 @@ namespace TG.DontDestroyOnLoad
         [SerializeField] AssetLabelReference woodWalkReference;
         [SerializeField] AssetLabelReference AudioReference;
         [SerializeField] AssetLabelReference equipmentReference;
+        [SerializeField] AssetLabelReference canvasReference;
 
         public Dictionary<string, List<AudioClip>> StepSFX { get; private set; } = new Dictionary<string, List<AudioClip>>();
         public Dictionary<string, AudioClip> userAudio { get; private set; } = new Dictionary<string, AudioClip>();
+        public Dictionary<string, GameObject> canvas { get; private set; } = new Dictionary<string, GameObject>();
         public Dictionary<string, IEquipment> equipment { get; private set; } = new Dictionary<string, IEquipment>();
 
         public GameObject getPlayer => player;
         public GameObject getMainCamera => mainCamera;
-        public AudioSource getAudioSource => audioSource;
+        public Transform getScreenDisplay => screenDisplay;
+        public AudioSource getAudioSource => audioSource;        
+
 
         public void Awake()
         {
@@ -76,6 +81,12 @@ namespace TG.DontDestroyOnLoad
             {
                 equipment.Add(clip.getName, clip);
                 clip.Awake();
+            }).WaitForCompletion();
+
+            canvas = new Dictionary<string, GameObject>();
+            Addressables.LoadAssetsAsync<GameObject>(canvasReference, (clip) =>
+            {
+                canvas.Add(clip.name, clip);
             }).WaitForCompletion();
         }
 

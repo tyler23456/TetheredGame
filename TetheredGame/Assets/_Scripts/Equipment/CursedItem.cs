@@ -10,7 +10,7 @@ namespace TG.Equipment
         const float SANITY_MULTIPLIER = 10f;
         const int THRILL_OFFSET = 50;
 
-        public override void Use(GameObject user)
+        public override void Grab(GameObject user)
         {
             ICharacter newTarget = user.GetComponent<ICharacter>();
 

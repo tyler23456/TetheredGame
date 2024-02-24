@@ -102,6 +102,7 @@ MonoBehaviour:
     - Audio
     - Background
     - Equipment
+    - Canvas
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: d2db803f5ffc40346b6f9b3a68ee4585, type: 2}

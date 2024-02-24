@@ -22,5 +22,6 @@ namespace TG.Equipment
         }
 
         public virtual void Use(GameObject user) { }
+        public virtual void Grab(GameObject user) { }
     }
 }

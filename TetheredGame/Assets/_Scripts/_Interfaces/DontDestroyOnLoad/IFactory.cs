@@ -8,11 +8,12 @@ public interface IFactory
 
     GameObject getPlayer { get; }
     GameObject getMainCamera { get; }
-    //CinemachineVirtualCamera getCamVirtual { get; }
-    //Cinemachine3rdPersonFollow getFollow { get; }
+    Dictionary<string, GameObject> canvas { get; }
+    Transform getScreenDisplay { get; }
     AudioSource getAudioSource { get; }
+    
     Dictionary<string, AudioClip> userAudio { get; }
-
+    Dictionary<string, IEquipment> equipment { get; }
 
     void MovePlayerTo(Vector3 position, Vector3 forward);
     RaycastHit RaycastFromCamera(float distance);

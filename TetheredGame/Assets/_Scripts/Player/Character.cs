@@ -20,7 +20,9 @@ namespace TG.UserPlayer
         [SerializeField] protected StepSFX stepSFX;
         [SerializeField] protected SoundFX soundFX;
         [SerializeField] protected CameraVisibility cameraVisibility;
- 
+
+        public Transform getTransform => transform;
+        public GameObject getGameObject => gameObject;
         public Collider getCollider => userCollider;
         public Vector3 getCenter => userCollider.bounds.center;
         public Vector3 getPosition => transform.position;
@@ -43,7 +45,6 @@ namespace TG.UserPlayer
                 factory = GameObject.Find("DontDestroyOnLoad").GetComponent<IFactory>();
             }
 
-            
             //temporary
             //if (!IsOwner)
             //return;
@@ -51,6 +52,7 @@ namespace TG.UserPlayer
 
             stats.Initialize();
             base.Start();
+            equipped.Initialize(factory);
 
             //Animator animator = GetComponent<Animator>();
             //stats.AddOnValueChangedTo("Thrill", (value) => animator.speed = 1 + (value / 100f * ANIMATOR_SPEED_MULTIPLIER));

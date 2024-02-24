@@ -10,6 +10,8 @@ public interface ICharacter
     string tag { get; set; }
     bool enabled { get; set; }
 
+    Transform getTransform { get; }
+    GameObject getGameObject { get; }
     Collider getCollider { get; }
     Vector3 getCenter { get; }
     Vector3 getPosition { get; }

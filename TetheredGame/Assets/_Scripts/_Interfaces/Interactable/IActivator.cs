@@ -4,9 +4,11 @@ using UnityEngine;
 
 public interface IActivator
 {
+    ICharacter user { get; set; }
     Vector3 userPosition { get; set; }
     float forceMultiplier { get; set; }
     Vector3 impactPosition { get; set; }
     void Activate();
-    void Deactivate();
+    void LeftHandInteract();
+    void RightHandInteract();
 }

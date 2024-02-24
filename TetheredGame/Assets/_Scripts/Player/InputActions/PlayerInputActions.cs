@@ -46,9 +46,27 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Interact"",
+                    ""name"": ""LeftInteract"",
                     ""type"": ""Button"",
                     ""id"": ""1f79eda7-ea03-4f76-af19-b95ec3947d26"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RightInteract"",
+                    ""type"": ""Button"",
+                    ""id"": ""d39a21e0-1ee5-4a4b-8c3d-73e64eac8408"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""84df62f6-fd2f-46c2-9404-895371f9075a"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -125,6 +143,28 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""bd133704-ee94-4a1d-8b88-753d7ae5a8a6"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftInteract"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""19f61fca-a975-481c-a5a6-c7d0b547cbb7"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightInteract"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""063343ad-72cb-4e3c-b8e0-47eeabe0a7d7"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -142,6 +182,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_ToggleFlashlight = m_Player.FindAction("ToggleFlashlight", throwIfNotFound: true);
+        m_Player_LeftInteract = m_Player.FindAction("LeftInteract", throwIfNotFound: true);
+        m_Player_RightInteract = m_Player.FindAction("RightInteract", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
     }
 
@@ -206,6 +248,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_ToggleFlashlight;
+    private readonly InputAction m_Player_LeftInteract;
+    private readonly InputAction m_Player_RightInteract;
     private readonly InputAction m_Player_Interact;
     public struct PlayerActions
     {
@@ -213,6 +257,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public PlayerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @ToggleFlashlight => m_Wrapper.m_Player_ToggleFlashlight;
+        public InputAction @LeftInteract => m_Wrapper.m_Player_LeftInteract;
+        public InputAction @RightInteract => m_Wrapper.m_Player_RightInteract;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
@@ -229,6 +275,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @ToggleFlashlight.started += instance.OnToggleFlashlight;
             @ToggleFlashlight.performed += instance.OnToggleFlashlight;
             @ToggleFlashlight.canceled += instance.OnToggleFlashlight;
+            @LeftInteract.started += instance.OnLeftInteract;
+            @LeftInteract.performed += instance.OnLeftInteract;
+            @LeftInteract.canceled += instance.OnLeftInteract;
+            @RightInteract.started += instance.OnRightInteract;
+            @RightInteract.performed += instance.OnRightInteract;
+            @RightInteract.canceled += instance.OnRightInteract;
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
@@ -242,6 +294,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @ToggleFlashlight.started -= instance.OnToggleFlashlight;
             @ToggleFlashlight.performed -= instance.OnToggleFlashlight;
             @ToggleFlashlight.canceled -= instance.OnToggleFlashlight;
+            @LeftInteract.started -= instance.OnLeftInteract;
+            @LeftInteract.performed -= instance.OnLeftInteract;
+            @LeftInteract.canceled -= instance.OnLeftInteract;
+            @RightInteract.started -= instance.OnRightInteract;
+            @RightInteract.performed -= instance.OnRightInteract;
+            @RightInteract.canceled -= instance.OnRightInteract;
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
@@ -266,6 +324,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnToggleFlashlight(InputAction.CallbackContext context);
+        void OnLeftInteract(InputAction.CallbackContext context);
+        void OnRightInteract(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
     }
 }

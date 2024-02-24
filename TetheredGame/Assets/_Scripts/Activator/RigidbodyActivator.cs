@@ -19,8 +19,6 @@ namespace TG.Activator
             userRigidbody.AddForce(direction * force * forceMultiplier + Vector3.up * 2f, ForceMode.Impulse);
         }
 
-        void IActivator.Deactivate() { }
-
         void OnCollisionEnter(Collision collision)
         {
             if (audioSource == null)

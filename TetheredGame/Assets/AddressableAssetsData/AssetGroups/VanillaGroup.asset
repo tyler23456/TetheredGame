@@ -97,6 +97,15 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Equipment
+  - m_GUID: 277ce1734b5a32c499259905f10c99a5
+    m_Address: Assets/_User/OfficeAndPoliceStation/URP/PostProcessing.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4d051625d230af2458b2da284e684d74
+    m_Address: Assets/_User/Canvas/Prefabs
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Canvas
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: adef9eee19d02e44181ccdbac9bfb8fe, type: 2}
   m_SchemaSet:

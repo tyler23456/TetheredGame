@@ -9,15 +9,10 @@ namespace TG.Activator
         [SerializeField] AudioSource audioSource;
         [SerializeField] Animator animator;
 
-        void IActivator.Activate()
+        public override void Activate()
         {
             audioSource.Play();
             animator.SetTrigger("Activate");
-        }
-
-        void IActivator.Deactivate()
-        {
-            
         }
     }
 }

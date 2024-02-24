@@ -9,7 +9,9 @@ namespace TG.UserPlayer
     public class Player : Character, ICharacter
     {
         [SerializeField] protected Controls controls;
-        CharacterController controller;
+        [SerializeField] protected Aim aim;
+        
+        CharacterController controller;       
 
         protected new void Start()
         {
@@ -24,6 +26,11 @@ namespace TG.UserPlayer
             //-----------------------------------------
         }
 
+        protected void FixedUpdate()
+        {
+            
+        }
+
         protected new void Update()
         {
             //temporary
@@ -32,10 +39,17 @@ namespace TG.UserPlayer
             //temporary
 
 
+
             
             base.Update();
+            aim.Update();
 
             //controls.Update();
+
+        }
+
+        protected void LateUpdate()
+        {
             
         }
     }
