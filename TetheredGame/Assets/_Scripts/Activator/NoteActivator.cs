@@ -30,6 +30,7 @@ namespace TG.Activator
 
         public void DisplayNote()
         {
+            factory.getAudioSource.PlayOneShot(factory.userAudio["TurnPage"]);
             noteDisplay = GameObject.Instantiate(factory.canvas["NoteDisplay"], factory.getScreenDisplay);
         }
 
