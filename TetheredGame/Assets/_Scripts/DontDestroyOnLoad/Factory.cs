@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.Playables;
+using System.Linq;
 
 namespace TG.DontDestroyOnLoad
 {
@@ -28,21 +29,25 @@ namespace TG.DontDestroyOnLoad
         [SerializeField] AssetLabelReference metalWalkReference;
         [SerializeField] AssetLabelReference woodSprintReference;
         [SerializeField] AssetLabelReference woodWalkReference;
-        [SerializeField] AssetLabelReference AudioReference;
-        [SerializeField] AssetLabelReference equipmentReference;
+        [SerializeField] AssetLabelReference audioReference;
+        [SerializeField] AssetLabelReference effectsReference;
         [SerializeField] AssetLabelReference canvasReference;
+        [SerializeField] AssetLabelReference notesReference;
+        [SerializeField] AssetLabelReference cursedItemsReference;
+
 
         public Dictionary<string, List<AudioClip>> StepSFX { get; private set; } = new Dictionary<string, List<AudioClip>>();
         public Dictionary<string, AudioClip> userAudio { get; private set; } = new Dictionary<string, AudioClip>();
         public Dictionary<string, GameObject> canvas { get; private set; } = new Dictionary<string, GameObject>();
-        public Dictionary<string, IEquipment> equipment { get; private set; } = new Dictionary<string, IEquipment>();
+        public Dictionary<string, GameObject> effects { get; private set; } = new Dictionary<string, GameObject>();
+        public Dictionary<string, GameObject> notes { get; private set; } = new Dictionary<string, GameObject>();
+        public Dictionary<string, GameObject> cursedItems { get; private set; } = new Dictionary<string, GameObject>();
 
         public GameObject getPlayer => player;
         public GameObject getMainCamera => mainCamera;
         public Transform getScreenDisplay => screenDisplay;
-        public AudioSource getAudioSource => audioSource;        
-
-
+        public AudioSource getAudioSource => audioSource;
+        
         public void Awake()
         {
             audioSource.ignoreListenerPause = true;
@@ -71,16 +76,15 @@ namespace TG.DontDestroyOnLoad
 
 
             userAudio = new Dictionary<string, AudioClip>();
-            Addressables.LoadAssetsAsync<AudioClip>(AudioReference, (clip) =>
+            Addressables.LoadAssetsAsync<AudioClip>(audioReference, (clip) =>
             {
                 userAudio.Add(clip.name, clip);
             }).WaitForCompletion();
 
-            equipment = new Dictionary<string, IEquipment>();
-            Addressables.LoadAssetsAsync<IEquipment>(equipmentReference, (clip) =>
+            effects = new Dictionary<string, GameObject>();
+            Addressables.LoadAssetsAsync<GameObject>(effectsReference, (clip) =>
             {
-                equipment.Add(clip.getName, clip);
-                clip.Awake();
+                effects.Add(clip.name, clip);
             }).WaitForCompletion();
 
             canvas = new Dictionary<string, GameObject>();
@@ -88,6 +92,32 @@ namespace TG.DontDestroyOnLoad
             {
                 canvas.Add(clip.name, clip);
             }).WaitForCompletion();
+
+            notes = new Dictionary<string, GameObject>();
+            Addressables.LoadAssetsAsync<GameObject>(notesReference, (clip) =>
+            {
+                notes.Add(clip.name, clip);
+            }).WaitForCompletion();
+
+            cursedItems = new Dictionary<string, GameObject>();
+            Addressables.LoadAssetsAsync<GameObject>(cursedItemsReference, (clip) =>
+            {
+                cursedItems.Add(clip.name, clip);
+            }).WaitForCompletion();
+
+
+            GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("ItemSpawnPoint");
+
+            GameObject obj = null;
+            //--------------------------------------------------------------------
+            for (int i = 0; i < 50; i++)
+            {
+                obj = Instantiate(notes["RegularNote"]);
+                obj.transform.parent = spawnPoints[Random.Range(0, spawnPoints.Length)].transform;
+            }
+
+
+            //--------------------------------------------------------------------
         }
 
         public void MovePlayerTo(Vector3 position, Vector3 forward)
@@ -108,6 +138,13 @@ namespace TG.DontDestroyOnLoad
             Ray ray = mainCamera.GetComponent<Camera>().ScreenPointToRay(screenCenterPoint);
             Physics.Raycast(ray, out RaycastHit hit, distance, LayerMask.NameToLayer("Player"));
             return hit;
+        }
+
+        public GameObject GetWeightedRandomEffect()
+        {
+
+
+            return effects.ElementAt(Random.Range(0, effects.Count)).Value;
         }
     }
 }

@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - IgnorePlayer
+  - CharacterEffect
+  - SceneEffect
+  - ItemSpawnPoint
+  - CharacterSpawnPoint
   layers:
   - Default
   - TransparentFX

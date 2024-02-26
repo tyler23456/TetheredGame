@@ -92,20 +92,26 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Audio
-  - m_GUID: 300944ea08456eb45ae65f503e3a82b4
-    m_Address: Assets/_Scriptable/Equipment
+  - m_GUID: 3e9ab08648286e54691527f536e0c0f5
+    m_Address: Assets/_User/Characters/Effects
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Equipment
-  - m_GUID: 277ce1734b5a32c499259905f10c99a5
-    m_Address: Assets/_User/OfficeAndPoliceStation/URP/PostProcessing.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
+    - Effects
   - m_GUID: 4d051625d230af2458b2da284e684d74
     m_Address: Assets/_User/Canvas/Prefabs
     m_ReadOnly: 0
     m_SerializedLabels:
     - Canvas
+  - m_GUID: a2a3c16ff90163b45bada8b7ea595539
+    m_Address: Assets/_User/Props/Prefabs/Notes
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Notes
+  - m_GUID: 4b94ca099948b2945a4a9ff4e6f44dad
+    m_Address: Assets/_User/Props/Prefabs/CursedItems
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CursedItems
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: adef9eee19d02e44181ccdbac9bfb8fe, type: 2}
   m_SchemaSet:

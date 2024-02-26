@@ -5,7 +5,7 @@ using UnityEngine;
 namespace TG.Equipment
 {
     [CreateAssetMenu(fileName = "New Object Spawner", menuName = "Object Spawner")]
-    public class ObjectSpawner : ItemBase, IEquipment
+    public class ObjectSpawner : ItemBase, IEffect
     {
         static bool isInitialized = false;
         static Collider[] colliders;

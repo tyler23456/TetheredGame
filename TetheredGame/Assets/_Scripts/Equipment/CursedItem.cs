@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TG.Equipment
 {
-    public class CursedItem : ItemBase, IEquipment
+    public class CursedItem : ItemBase, IEffect
     {
         const float ROUND_MULTIPLIER = 10f;
         const float SANITY_MULTIPLIER = 10f;

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace TG.Equipment
 {
     [CreateAssetMenu(fileName = "New Object Effect", menuName = "Object Effect")]
-    public class ObjectEffect : ItemBase, IEquipment
+    public class ObjectEffect : ItemBase, IEffect
     {
         [SerializeField] GameObject prefab;
 

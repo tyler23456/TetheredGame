@@ -20,6 +20,7 @@ public interface ICharacter
     IOrientation getOrientation { get; }
     IAnimation getAnimation { get; }
     IStats getStats { get; }
+    IStatEffects getStatEffects { get; }
     IEquipped getEquipped { get; }
 
     bool isVisible { get; }

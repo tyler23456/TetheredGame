@@ -9,13 +9,13 @@ namespace TG.Activator
         public override void LeftHandInteract()
         {
             user.getEquipped.GrabLeftHandEquipment(transform);
-            factory.equipment["CursedItem"].Use(user.getGameObject);
+            //factory.effects["CursedItem"].Use(user.getGameObject);
         }
 
         public override void RightHandInteract()
         {
             user.getEquipped.GrabRightHandEquipment(transform);
-            factory.equipment["CursedItem"].Use(user.getGameObject);
+            //factory.effects["CursedItem"].Use(user.getGameObject);
         }
     }
 }

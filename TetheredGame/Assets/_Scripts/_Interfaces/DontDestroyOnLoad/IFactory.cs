@@ -13,8 +13,12 @@ public interface IFactory
     AudioSource getAudioSource { get; }
     
     Dictionary<string, AudioClip> userAudio { get; }
-    Dictionary<string, IEquipment> equipment { get; }
+    Dictionary<string, GameObject> effects { get; }
+    Dictionary<string, GameObject> notes { get; }
+    Dictionary<string, GameObject> cursedItems { get; }
 
     void MovePlayerTo(Vector3 position, Vector3 forward);
     RaycastHit RaycastFromCamera(float distance);
+
+    GameObject GetWeightedRandomEffect();
 }

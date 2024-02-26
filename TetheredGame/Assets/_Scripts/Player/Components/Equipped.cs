@@ -66,5 +66,15 @@ namespace TG.UserPlayer
 
             rightHandSlot.GetChild(0).parent = null;
         }
+
+        public bool LeftHandEquals(Transform equipment)
+        {
+            return leftHandSlot.childCount > 0 && leftHandSlot.GetChild(0).Equals(equipment);
+        }
+
+        public bool RightHandEquals(Transform equipment)
+        {
+            return rightHandSlot.childCount > 0 && rightHandSlot.GetChild(0).Equals(equipment);
+        }
     }
 }

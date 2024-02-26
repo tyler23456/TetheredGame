@@ -7,10 +7,12 @@ namespace TG.Activator
     public abstract class ActivatorBase : MonoBehaviour
     {
         protected IFactory factory;
+        protected IGlobal global;
 
-        public void Start()
+        public virtual void Start()
         {
             factory = GameObject.Find("/DontDestroyOnLoad").GetComponent<IFactory>();
+            global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
         }
 
         public ICharacter user { get; set; } = null;

@@ -16,6 +16,7 @@ namespace TG.UserPlayer
         [SerializeField] protected Orientation orientation;
         [SerializeField] protected new Animation animation;
         [SerializeField] protected Stats stats;
+        [SerializeField] protected StatEffects statEffects;
         [SerializeField] protected Equipped equipped;
         [SerializeField] protected StepSFX stepSFX;
         [SerializeField] protected SoundFX soundFX;
@@ -33,6 +34,7 @@ namespace TG.UserPlayer
         public IEquipped getEquipped => equipped;
         public IAnimation getAnimation => animation;
         public IStats getStats => stats;
+        public IStatEffects getStatEffects => statEffects;
 
         public bool isVisible => cameraVisibility.isVisible;
 
