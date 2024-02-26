@@ -14,9 +14,9 @@ namespace TG.Effects
         {
             factory = GameObject.Find("/DontDestroyOnLoad").GetComponent<IFactory>();
             global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
-            target = transform.parent.parent.GetComponent<ICharacter>();
+            if (target.tag == "CharacterEffect")
+                target = transform.parent.parent.GetComponent<ICharacter>();
         }
-
 
         virtual protected void Update()
         {

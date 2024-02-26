@@ -24,6 +24,8 @@ namespace TG.UserPlayer
             //-----------------------------------------
             GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>().SetTarget(this);
             //-----------------------------------------
+
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
         protected void FixedUpdate()

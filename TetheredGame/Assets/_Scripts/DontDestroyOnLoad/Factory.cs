@@ -114,6 +114,8 @@ namespace TG.DontDestroyOnLoad
             {
                 obj = Instantiate(notes["RegularNote"]);
                 obj.transform.parent = spawnPoints[Random.Range(0, spawnPoints.Length)].transform;
+                obj.transform.localPosition = Vector3.zero;
+                obj.transform.localRotation = Quaternion.identity;
             }
 
 
