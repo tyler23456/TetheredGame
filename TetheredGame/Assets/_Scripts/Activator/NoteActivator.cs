@@ -69,11 +69,16 @@ namespace TG.Activator
 
         public void Update()
         {
-            if (noteDisplay == null)
-                return;
-
-            noteDisplay.transform.position = Vector3.Lerp(noteDisplay.transform.position, global.getNoteDisplay.position, 0.2f);
-            noteDisplay.transform.rotation = Quaternion.Slerp(noteDisplay.transform.rotation, global.getNoteDisplay.rotation, 0.2f);
+            if (noteDisplay != null)
+            {
+                noteDisplay.transform.position = Vector3.Lerp(noteDisplay.transform.position, global.getNoteDisplay.position, 0.2f);
+                noteDisplay.transform.rotation = Quaternion.Slerp(noteDisplay.transform.rotation, global.getNoteDisplay.rotation, 0.2f);
+            }
+            else if (isActive)
+            {
+                transform.localPosition = Vector3.Lerp(transform.localPosition, Vector3.zero, 0.2f);
+                transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.identity, 0.2f);
+            }          
         }
     }
 }

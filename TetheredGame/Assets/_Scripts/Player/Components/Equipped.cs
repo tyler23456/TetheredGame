@@ -27,8 +27,6 @@ namespace TG.UserPlayer
                 leftHandSlot.GetChild(0).parent = null;
 
             equipment.parent = leftHandSlot;
-            equipment.transform.localPosition = Vector3.zero;
-            equipment.transform.localEulerAngles = Vector3.zero;
         }
 
         public void GrabRightHandEquipment(Transform equipment)
@@ -37,8 +35,6 @@ namespace TG.UserPlayer
                 rightHandSlot.GetChild(0).parent = null;
 
             equipment.parent = rightHandSlot;
-            equipment.transform.localPosition = Vector3.zero;
-            equipment.transform.localEulerAngles = Vector3.zero;
         }
 
         public void LeftHandInteract()
